@@ -9,7 +9,7 @@
     <div class="category-list">
       <ul>
         <li v-for="item in categoryList" :key="item.id">
-          <router-link to="BookDetail" @click.native="bookDetailId(item.id)">
+          <router-link :to="{path:'/BookDetail/'+item.id}" @click.native="bookDetailId(item.id)">
             <div class="book-image">
               <img :src="item.images"/>
             </div>
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     getData () {
-      axios.get(`/api/type?type=${this.type}`).then(res => {
+      axios.get(`/api/type?type=${this.$route.params.type}`).then(res => {
         this.categoryList = res.data
         console.log(this.categoryList)
       }).catch(error => {
@@ -60,9 +60,6 @@ export default {
     }
   },
   computed: {
-    type () {
-      return this.$store.state.bookCategory
-    },
     title () {
       switch (this.$store.state.bookCategory) {
         case 1:

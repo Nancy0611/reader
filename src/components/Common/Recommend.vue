@@ -4,7 +4,7 @@
     <div class="list">
       <ul class="list-ul">
         <li class="list-li" v-for="item in datalist" :key="item.id">
-          <router-link to="BookDetail" @click.native="bookDetailId(item.id)">
+          <router-link :to="{path:'/BookDetail/'+item.id}" @click.native="bookDetailId(item.id)">
             <img :src="item.images">
             <p>{{item.name}}</p>
             <p>{{item.author}}</p>

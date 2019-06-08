@@ -19,7 +19,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/category',
+      path: '/category/:type',
       name: Category,
       component: Category
     },
@@ -29,7 +29,7 @@ export default new Router({
       component: Reader
     },
     {
-      path: '/bookdetail',
+      path: '/bookdetail/:id',
       name: 'BookDetail',
       component: BookDetail
     }
